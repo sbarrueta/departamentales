@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="persona" class="com.tresct.departamentales.hibernate.entities.Persona"/>
+    <bean id="personaDAO" class="com.tresct.departamentales.dao.impl.PersonaDAOImpl">
+        <property name="persona"  ref="persona"></property>
+    </bean>
+
+    <bean id="personaCorreos" class="com.tresct.departamentales.hibernate.entities.PersonaCorreos">
+        <!-- collaborators and configuration for this bean go here -->
+    </bean>
+    <bean id="personaCorreosDAO" class="com.tresct.departamentales.dao.impl.PersonaCorreosDAOImpl">
+        <property name="personaCorreos"  ref="personaCorreos"></property>
+    </bean>
+    
+    <bean id="personaBO" class="com.tresct.departamentales.bo.impl.PersonaBOImpl">
+    	<property name="personaDAO" ref="personaDAO"/>
+    	<property name="persona"  ref="persona"/> 
+    </bean>
+    
+ 
+    <!-- more bean definitions go here -->
+</beans>
